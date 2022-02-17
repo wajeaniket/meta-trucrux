@@ -1,0 +1,12 @@
+[Unit]
+Description=Trucrux Bluetooth setup service
+After=trucrux-wifi.service
+Before=bluetooth.target
+
+[Service]
+Type=forking
+ExecStart=/etc/bluetooth/trucrux-bt start
+ExecStop=/etc/bluetooth/trucrux-bt stop
+
+[Install]
+WantedBy=multi-user.target
