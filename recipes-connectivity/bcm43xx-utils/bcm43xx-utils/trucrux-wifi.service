@@ -1,0 +1,14 @@
+[Unit]
+Description=Trucrux WIFI setup service
+Before=network.target
+After=sysinit.target
+
+[Service]
+Type=oneshot
+#RemainAfterExit=yes
+ExecStart=/etc/wifi/trucrux-wifi start
+#ExecStop=/etc/wifi/trucrux-wifi stop
+
+[Install]
+WantedBy=network.target
+
