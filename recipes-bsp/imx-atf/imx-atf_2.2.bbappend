@@ -1,3 +1,3 @@
-SRC_URI = "git://github.com/Trucrux/imx-atf.git;protocol=https;branch=${SRCBRANCH}"
+SRC_URI = "git://github.com/Trucrux/imx-atf.git;protocol=git;branch=${SRCBRANCH}"
 SRCBRANCH = "imx_5.4.24_2.1.0"
-SRCREV = "06450210f94c10e7298804bcc6498955769ec907"
+SRCREV = "7575633e03ff952a18c0a2c0aa543dee793fda5f"

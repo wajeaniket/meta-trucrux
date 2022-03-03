@@ -21,8 +21,10 @@ RDEPENDS_${KERNEL_PACKAGE_NAME}-base = ""
 DEFAULT_PREFERENCE = "1"
 
 LOCALVERSION_imx8mq-trux-q01 = "-imx8mq"
+LOCALVERSION_imx8mm-trux-q01 = "-imx8mm"
 
 KBUILD_DEFCONFIG_imx8mq-trux-q01 = "imx8mq_trucrux_defconfig"
+KBUILD_DEFCONFIG_imx8mm-trux-q01 = "imx8_trux_defconfig"
 
 DEFAULT_DTB_imx8mq-trux-q01 = "sd-hdmi"
 DEFAULT_DTB_PREFIX_imx8mq-trux-q01 = "imx8mq-trux-8MDVP"

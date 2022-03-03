@@ -19,8 +19,9 @@ if [[ -e ${YOCTO_ROOT}/sources/meta-boot2qt ]] ; then
 	readonly YOCTO_DEFAULT_IMAGE=b2qt-embedded-qt6-image
 else
 	readonly BSP_TYPE="YOCTO"
-	readonly YOCTO_BUILD=${YOCTO_ROOT}/build_xwayland
+	readonly YOCTO_BUILD=${YOCTO_ROOT}/build_xwayland2
 	readonly YOCTO_DEFAULT_IMAGE=fsl-image-gui
+	#readonly YOCTO_DEFAULT_IMAGE=core-image-minimal
 
 fi
 echo "BSP type: ${BSP_TYPE}"
@@ -98,7 +99,7 @@ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 help() {
 	bn=`basename $0`
-	echo " Usage: MACHINE=<imx8mq-trux-q01> $bn <options> device_node"
+	echo " Usage: MACHINE=<imx8mq-trux-q01|imx8mm-trux-q01> $bn <options> device_node"
 	echo
 	echo " options:"
 	echo " -h		display this Help message"
@@ -118,6 +119,9 @@ fi
 case $MACHINE in
 	"imx8mq-trux-q01")
 		IMXBOOT_TARGET=flash_evk
+		;;
+	"imx8mm-trux-q01")
+		IMXBOOT_TARGET=flash_lpddr4_ddr4_evk 
 		;;
 	*)
 		help
@@ -394,7 +398,7 @@ function copy_scripts
 	echo "Copying scripts"
 
 	cp ${YOCTO_SCRIPTS_PATH}/echos.sh 		${P2_MOUNT_DIR}/usr/bin/
-	cp ${YOCTO_SCRIPTS_PATH}/mx8_install_trux.sh	${P2_MOUNT_DIR}/usr/bin/install_trux.sh
+	cp ${YOCTO_SCRIPTS_PATH}/mx8_install_yocto.sh	${P2_MOUNT_DIR}/usr/bin/install_yocto.sh
 
 	if [ ${HAS_DESKTOP_ICONS} = 1 ]; then
 		echo
